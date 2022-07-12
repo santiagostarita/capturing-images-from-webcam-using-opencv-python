@@ -1,7 +1,19 @@
+# Softwares and packages required:
+# 1. Python, v3.6.7
+# 2. Matplotlib, v3.0.2 (to view the captured images or images that have been modified. Not required for Windows machines.) ```pip3 install matplotlib```
+# 3. OpenCV, v3.4.4 ```sudo apt install python3-opencv```
+
+
 import cv2
 from time import sleep
 key = cv2. waitKey(1)
-webcam = cv2.VideoCapture(0)
+#webcam = cv2.VideoCapture(0)
+
+webcam = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+webcam.set(cv2.CAP_PROP_FRAME_WIDTH, 1080)  # set new dimensionns to cam object (not cap)
+webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
+
 sleep(2)
 while True:
 
@@ -10,7 +22,7 @@ while True:
         print(check) #prints true as long as the webcam is running
         print(frame) #prints matrix values of each framecd 
         cv2.imshow("Capturing", frame)
-        key = cv2.waitKey(1)
+        key = cv2.waitKey(1)qs
         if key == ord('s'): 
             cv2.imwrite(filename='saved_img.jpg', img=frame)
             webcam.release()

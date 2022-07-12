@@ -22,7 +22,7 @@ while True:
         print(check) #prints true as long as the webcam is running
         print(frame) #prints matrix values of each framecd 
         cv2.imshow("Capturing", frame)
-        key = cv2.waitKey(1)qs
+        key = cv2.waitKey(1)
         if key == ord('s'): 
             cv2.imwrite(filename='saved_img.jpg', img=frame)
             webcam.release()
